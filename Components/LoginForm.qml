@@ -7,9 +7,10 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import SddmComponents 2.0 as SDDM
 
-ColumnLayout {
+GridLayout {
     id: formContainer
     SDDM.TextConstants { id: textConstants }
+    rows: 10
 
     property int p: config.ScreenPadding
     property string a: config.FormPosition
@@ -21,8 +22,9 @@ ColumnLayout {
         id: clock
         Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
         // important
-        Layout.preferredHeight: root.height / 3
+        Layout.preferredHeight: root.height / 10
         Layout.leftMargin: p != "0" ? a == "left" ? -p : a == "right" ? p : 0 : 0
+        Layout.row: 1
     }
 
     Input {
@@ -31,6 +33,7 @@ ColumnLayout {
         Layout.preferredHeight: root.height / 10
         Layout.leftMargin: p != "0" ? a == "left" ? -p : a == "right" ? p : 0 : 0
         Layout.topMargin: virtualKeyboardActive ? -height * 1.5 : 0
+        Layout.row: 5
     }
 
     SystemButtons {
